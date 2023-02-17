@@ -13,8 +13,11 @@ import { ReplaySubject } from 'rxjs';
 })
 export class AddVehiculeComponent {
   listBoites: Boite[] = [];
-  data: any = {};
-  reso: ReplaySubject<Boite> = new ReplaySubject;
+  lista: any[] = [];
+  boite!: Boite;
+  bb: any;
+  stringifiedData: any;
+  parsedJson: any;
 
   addForm = new FormGroup({
     typologie: new FormControl,
@@ -42,27 +45,24 @@ export class AddVehiculeComponent {
 
   ngOnInit(): void {
     this.loadBoites();
+    // setTimeout(() => {
+    //   console.log("nel TO :" + this.listBoites[0].type + " " + this.listBoites[0].id +
+    //     "\n e" + this.listBoites[1].type + " " + this.listBoites[1].id);
+
+    // }, 3000);
+
+
+
   }
+
 
   loadBoites() {
-    this.boiteService.getBoites().pipe(map(data => data['hydra:member']))    
-    .subscribe((boites: Boite[]) =>{
-      this.listBoites = boites;
-      // next: (data) => {
-      //   this.data = data;
-      //   this.listBoites.push(data);
-         console.log("list: "  + this.listBoites )
+    this.boiteService.getBoites().pipe(map(data => data['hydra:member']))
+      .subscribe((boites: Boite[]) => {
+        this.listBoites = boites;
+        return this.listBoites
       }
 
-      // next: (resp: any) => {
-      // this.boitta.type = data[0][''];
-      // console.log("data " + this.boitta.type);
-      // boitta => {this.boitta = boitta} ,
-      // console.log("risposta " + this.listBoites));
-
-      // this.boiteService.getBoites().pipe(map((data: any )=> data.json)).subscribe((res)=> {
-      //   this.data = res;
-      //     console.log("ora " + res + " "+ this.data)
 
 
 
@@ -70,7 +70,10 @@ export class AddVehiculeComponent {
 
 
 
-    )
+
+
+      )
   }
+  convBoite() { }
 }
 

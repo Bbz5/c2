@@ -3,7 +3,7 @@
     <div id="sousCntForm">
         <h1>Ajoutes un nouveau vehicule </h1>
         <div *ngFor="let b of listBoites ">
-            <H3> valore {{b.type|json}}  </H3>
+            <H3> valore {{b.type}}  </H3>
         </div>
         <form [formGroup]="addForm">
             <div id="cnt">
@@ -24,7 +24,7 @@
             </div>
             <div id="cnt">
                 <label for="boite">Quel boite? </label>
-                <input type="text" placeholder="boite" id="boite">
+                <p-dropdown [options]="listBoites"  formControlName="boite" optionLabel="type"></p-dropdown>
             </div>
             <div id="cnt">
                 <label for="prix">Quel prix? </label>
