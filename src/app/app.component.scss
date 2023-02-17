@@ -1,0 +1,22 @@
+
+html{
+    height: 100%;
+}
+body{
+    height: 100vh;
+    
+    //background-color: aqua;
+    // background: url("/../c2cc-front/src/images/campingNight.jpg");
+    // background: url("https://cdn.pixabay.com/photo/2022/03/17/19/43/camper-7075297_960_720.jpg");
+    // background-repeat: no-repeat;
+    // background-size: 110% ;
+  
+}
+
+#cntBackground{
+    min-height: 100%;
+    background: url("https://cdn.pixabay.com/photo/2017/09/26/13/50/rv-2788677_960_720.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% ;
+    color: whitesmoke;
+}

@@ -1,0 +1,90 @@
+<p>add-vehicule works!</p>
+<div id="cntForm">
+    <div id="sousCntForm">
+        <h1>Ajoutes un nouveau vehicule </h1>
+        <div *ngFor="let b of listBoites ">
+            <H3> valore {{b.type|json}}  </H3>
+        </div>
+        <form [formGroup]="addForm">
+            <div id="cnt">
+                <label for="typologie">Quel genre de vehicule? </label>
+                <input type="text" placeholder="typologie" id="typologie">
+            </div>
+            <div id="cnt">
+                <label for="annee">De quel année? </label>
+                <input type="text" placeholder="annee" id="annee">
+            </div>
+            <div id="cnt">
+                <label for="marque">Marque du vehicule? </label>
+                <input type="text" placeholder="marque" id="marque">
+            </div>
+            <div id="cnt">
+                <label for="modele">Quel modele de vehicule? </label>
+                <input type="text" placeholder="modele" id="modele">
+            </div>
+            <div id="cnt">
+                <label for="boite">Quel boite? </label>
+                <input type="text" placeholder="boite" id="boite">
+            </div>
+            <div id="cnt">
+                <label for="prix">Quel prix? </label>
+                <input type="text" placeholder="prix" id="prix">
+            </div>
+            <div id="cnt">
+                <label for="status">Est-il neuf ou d'occasion? </label>
+                <input type="text" placeholder="status" id="status">
+            </div>
+            <div id="cnt">
+                <label for="kilometrage">Combien de kilometre? </label>
+                <input type="text" placeholder="kilometrage" id="kilometrage">
+            </div>
+            <div id="cnt">
+                <label for="dimensionLongeur"> Dimension - longeur? </label>
+                <input type="text" placeholder="dimensionLongeur" id="dimensionLongeur">
+            </div>
+            <div id="cnt">
+                <label for="dimensionLargeur"> Dimension - lergeur? </label>
+                <input type="text" placeholder="dimensionLargeur" id="dimensionLargeur">
+            </div>
+            <div id="cnt">
+                <label for="dimensionHauteur">Dimension - hauteur? </label>
+                <input type="text" placeholder="dimensionHauteur" id="dimensionHauteur">
+            </div>
+            <div id="cnt">
+                <label for="region">Il est dans quel region? </label>
+                <input type="text" placeholder="region" id="region">
+            </div>
+            <div id="cnt">
+                <label for="nombreCouchage"> Combien de place pour dormir? </label>
+                <input type="text" placeholder="nombreCouchage" id="nombreCouchage">
+            </div>
+            <div id="cnt">
+                <label for="typeCouchage">Quel type de couchage? </label>
+                <input type="text" placeholder="typeCouchage" id="typeCouchage">
+            </div>
+            <div id="cnt">
+                <label for="pvom"> Le poids a vide du vehicule? </label>
+                <input type="text" placeholder="pvom" id="pvom">
+            </div>
+            <div id="cnt">
+                <label for="ptac"> Le poids total authorisé du vehicule? </label>
+                <input type="text" placeholder="ptac" id="ptac">
+            </div>
+            <div id="cnt">
+                <label for="chargeUtile"> La charge Utile? </label>
+                <input type="text" placeholder="chargeUtile" id="chargeUtile">
+            </div>
+            <div id="cnt">
+                <label for="garantie"> La garantie est de combien de mois? </label>
+                <input type="text" placeholder="garantie" id="garantie">
+            </div>
+            <div id="cnt">
+                <label for="energie">Quel energie utilise? </label>
+                <input type="text" placeholder="energie" id="energie">
+            </div>
+
+            
+
+        </form>
+    </div>
+</div>
