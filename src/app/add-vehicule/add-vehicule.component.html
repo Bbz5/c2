@@ -1,18 +1,18 @@
 <p>add-vehicule works!</p>
 <div id="cntForm">
+    <div id="titre">
+    <h1>Ajoutes un nouveau vehicule </h1>
+</div>
     <div id="sousCntForm">
-        <h1>Ajoutes un nouveau vehicule </h1>
-        <div *ngFor="let b of listBoites ">
-            <H3> valore {{b.type}}  </H3>
-        </div>
         <form [formGroup]="addForm">
             <div id="cnt">
                 <label for="typologie">Quel genre de vehicule? </label>
-                <input type="text" placeholder="typologie" id="typologie">
+                <p-dropdown [options]="listTypologies" formControlName="typologie"
+                    optionLabel="typeVehicule"></p-dropdown>
             </div>
             <div id="cnt">
                 <label for="annee">De quel année? </label>
-                <input type="text" placeholder="annee" id="annee">
+                <input type="text" placeholder="annee" id="annee" pInputText />
             </div>
             <div id="cnt">
                 <label for="marque">Marque du vehicule? </label>
@@ -20,15 +20,15 @@
             </div>
             <div id="cnt">
                 <label for="modele">Quel modele de vehicule? </label>
-                <input type="text" placeholder="modele" id="modele">
+                <input type="text" placeholder="modele" id="modele" pInputText />
             </div>
             <div id="cnt">
                 <label for="boite">Quel boite? </label>
-                <p-dropdown [options]="listBoites"  formControlName="boite" optionLabel="type"></p-dropdown>
+                <p-dropdown [options]="listBoites" formControlName="boite" optionLabel="type"></p-dropdown>
             </div>
             <div id="cnt">
                 <label for="prix">Quel prix? </label>
-                <input type="text" placeholder="prix" id="prix">
+                <input type="text" placeholder="prix" id="prix" pInputText />
             </div>
             <div id="cnt">
                 <label for="status">Est-il neuf ou d'occasion? </label>
@@ -36,23 +36,23 @@
             </div>
             <div id="cnt">
                 <label for="kilometrage">Combien de kilometre? </label>
-                <input type="text" placeholder="kilometrage" id="kilometrage">
+                <input type="text" placeholder="kilometrage" id="kilometrage" pInputText />
             </div>
             <div id="cnt">
                 <label for="dimensionLongeur"> Dimension - longeur? </label>
-                <input type="text" placeholder="dimensionLongeur" id="dimensionLongeur">
+                <input type="text" placeholder="dimensionLongeur" id="dimensionLongeur" pInputText />
             </div>
             <div id="cnt">
                 <label for="dimensionLargeur"> Dimension - lergeur? </label>
-                <input type="text" placeholder="dimensionLargeur" id="dimensionLargeur">
+                <input type="text" placeholder="dimensionLargeur" id="dimensionLargeur" pInputText />
             </div>
             <div id="cnt">
                 <label for="dimensionHauteur">Dimension - hauteur? </label>
-                <input type="text" placeholder="dimensionHauteur" id="dimensionHauteur">
+                <input type="text" placeholder="dimensionHauteur" id="dimensionHauteur" pInputText />
             </div>
             <div id="cnt">
                 <label for="region">Il est dans quel region? </label>
-                <input type="text" placeholder="region" id="region">
+                <p-dropdown [options]="listRegions" formControlName="region" optionLabel="nom"></p-dropdown>
             </div>
             <div id="cnt">
                 <label for="nombreCouchage"> Combien de place pour dormir? </label>
@@ -64,26 +64,26 @@
             </div>
             <div id="cnt">
                 <label for="pvom"> Le poids a vide du vehicule? </label>
-                <input type="text" placeholder="pvom" id="pvom">
+                <input type="text" placeholder="pvom" id="pvom" pInputText />
             </div>
             <div id="cnt">
                 <label for="ptac"> Le poids total authorisé du vehicule? </label>
-                <input type="text" placeholder="ptac" id="ptac">
+                <input type="text" placeholder="ptac" id="ptac" pInputText />
             </div>
             <div id="cnt">
                 <label for="chargeUtile"> La charge Utile? </label>
-                <input type="text" placeholder="chargeUtile" id="chargeUtile">
+                <input type="text" placeholder="chargeUtile" id="chargeUtile" pInputText />
             </div>
             <div id="cnt">
                 <label for="garantie"> La garantie est de combien de mois? </label>
-                <input type="text" placeholder="garantie" id="garantie">
+                <input type="text" placeholder="garantie" id="garantie" pInputText />
             </div>
             <div id="cnt">
                 <label for="energie">Quel energie utilise? </label>
                 <input type="text" placeholder="energie" id="energie">
             </div>
 
-            
+
 
         </form>
     </div>

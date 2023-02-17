@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { AddVehiculeComponent } from './add-vehicule/add-vehicule.component';
 import {DropdownModule} from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import {InputTextModule} from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     DropdownModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    InputTextModule
+    
     
   ],
   providers: [],

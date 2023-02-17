@@ -1,8 +1,12 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { BoiteService } from '../boite.service';
+import { Typologie } from '../interfaces/typologie';
+import { TypologieService } from '../services/typologie.service';
+import { BoiteService } from '../services/boite.service';
 import { Boite } from '../interfaces/boite';
+import { Region } from '../interfaces/region';
+import { RegionService } from '../services/region.service';
 import { map } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs';
 
@@ -13,11 +17,8 @@ import { ReplaySubject } from 'rxjs';
 })
 export class AddVehiculeComponent {
   listBoites: Boite[] = [];
-  lista: any[] = [];
-  boite!: Boite;
-  bb: any;
-  stringifiedData: any;
-  parsedJson: any;
+  listTypologies: Typologie[]= [];
+  listRegions :Region[]= []
 
   addForm = new FormGroup({
     typologie: new FormControl,
@@ -41,10 +42,14 @@ export class AddVehiculeComponent {
     energie: new FormControl,
   })
   constructor(
-    private boiteService: BoiteService) { }
+    private boiteService: BoiteService, private typologieService: TypologieService,
+    private regionService: RegionService
+    ) { }
 
   ngOnInit(): void {
     this.loadBoites();
+    this.loadTypologies();
+    this.loadRegions();
     // setTimeout(() => {
     //   console.log("nel TO :" + this.listBoites[0].type + " " + this.listBoites[0].id +
     //     "\n e" + this.listBoites[1].type + " " + this.listBoites[1].id);
@@ -61,19 +66,26 @@ export class AddVehiculeComponent {
       .subscribe((boites: Boite[]) => {
         this.listBoites = boites;
         return this.listBoites
-      }
-
-
-
-
-
-
-
-
-
-
-      )
+      })
   }
-  convBoite() { }
+
+  loadTypologies() { 
+    this.typologieService.getTypologie().pipe(map(data => data['hydra:member']))
+    .subscribe((typologies: Typologie[]) =>{
+      this.listTypologies = typologies;
+      console.log("typologies: " + this.listTypologies);
+      
+    })
+  }
+
+  loadRegions() { 
+    this.regionService.getRegions().pipe(map(data => data['hydra:member']))
+    .subscribe((regions: Region[]) =>{
+      this.listRegions = regions;
+      console.log("typologies: " + this.listRegions);
+      
+    })
+  }
+
 }
 

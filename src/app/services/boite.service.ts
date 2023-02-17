@@ -1,17 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
-import { Boite } from './interfaces/boite';
-import { pluck } from 'rxjs-compat/operator/pluck';
-
+import { Boite } from '../interfaces/boite';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BoiteService {
-endpoint = 'http://localhost:8000/api';
+  envir = environment
+  endpoint = this.envir.baseUrl
   constructor(
-    private http: HttpClient,
+    private http: HttpClient, 
   
   ) { }
 
