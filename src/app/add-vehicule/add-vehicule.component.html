@@ -32,7 +32,7 @@
             </div>
             <div id="cnt">
                 <label for="status">Est-il neuf ou d'occasion? </label>
-                <input type="text" placeholder="status" id="status">
+                <p-dropdown [options]="listStatus" formControlName="status" optionLabel="typeContrat"></p-dropdown>
             </div>
             <div id="cnt">
                 <label for="kilometrage">Combien de kilometre? </label>
@@ -56,11 +56,11 @@
             </div>
             <div id="cnt">
                 <label for="nombreCouchage"> Combien de place pour dormir? </label>
-                <input type="text" placeholder="nombreCouchage" id="nombreCouchage">
+                <p-dropdown [options]="listNombreCouchages" formControlName="nombreCouchage" optionLabel="place"></p-dropdown>
             </div>
             <div id="cnt">
                 <label for="typeCouchage">Quel type de couchage? </label>
-                <input type="text" placeholder="typeCouchage" id="typeCouchage">
+                <p-dropdown [options]="listTypeCouchages" formControlName="typeCouchage" optionLabel="type"></p-dropdown>
             </div>
             <div id="cnt">
                 <label for="pvom"> Le poids a vide du vehicule? </label>
@@ -80,7 +80,7 @@
             </div>
             <div id="cnt">
                 <label for="energie">Quel energie utilise? </label>
-                <input type="text" placeholder="energie" id="energie">
+                <p-dropdown [options]="listEnergies" formControlName="energie" optionLabel="typeEnergie"></p-dropdown>
             </div>
 
 

@@ -12,6 +12,7 @@ import { AddVehiculeComponent } from './add-vehicule/add-vehicule.component';
 import {DropdownModule} from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import {InputTextModule} from 'primeng/inputtext';
+import {InputNumberModule} from 'primeng/inputnumber';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {InputTextModule} from 'primeng/inputtext';
     HttpClientModule,
     DropdownModule,
     BrowserAnimationsModule,
-    InputTextModule
+    InputTextModule,
+    InputNumberModule
     
     
   ],

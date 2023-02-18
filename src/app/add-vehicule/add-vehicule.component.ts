@@ -7,6 +7,13 @@ import { BoiteService } from '../services/boite.service';
 import { Boite } from '../interfaces/boite';
 import { Region } from '../interfaces/region';
 import { RegionService } from '../services/region.service';
+import { Status } from '../interfaces/status';
+import { StatusService } from '../services/status.service';
+import { NombreCouchage } from '../interfaces/nombre-couchage';
+import { CouchageService } from '../services/couchage.service';
+import { TypeCouchage } from '../interfaces/type-couchage';
+import { Energie } from '../interfaces/energie';
+import { EnergieService } from '../services/energie.service';
 import { map } from 'rxjs/operators';
 import { ReplaySubject } from 'rxjs';
 
@@ -18,7 +25,11 @@ import { ReplaySubject } from 'rxjs';
 export class AddVehiculeComponent {
   listBoites: Boite[] = [];
   listTypologies: Typologie[]= [];
-  listRegions :Region[]= []
+  listRegions :Region[]= [];
+  listStatus : Status[]= [];
+  listNombreCouchages: NombreCouchage[] = [];
+  listTypeCouchages: TypeCouchage[] = [];
+  listEnergies: Energie[] = [];
 
   addForm = new FormGroup({
     typologie: new FormControl,
@@ -43,13 +54,17 @@ export class AddVehiculeComponent {
   })
   constructor(
     private boiteService: BoiteService, private typologieService: TypologieService,
-    private regionService: RegionService
-    ) { }
+    private regionService: RegionService, private statusService: StatusService,
+    private couchageService: CouchageService, private energieService: EnergieService    ) { }
 
   ngOnInit(): void {
     this.loadBoites();
     this.loadTypologies();
     this.loadRegions();
+    this.loadStatus();
+    this.loadNombreCouchages();
+    this.loadTypeCouchages();
+    this.loadEnergies();
     // setTimeout(() => {
     //   console.log("nel TO :" + this.listBoites[0].type + " " + this.listBoites[0].id +
     //     "\n e" + this.listBoites[1].type + " " + this.listBoites[1].id);
@@ -87,5 +102,36 @@ export class AddVehiculeComponent {
     })
   }
 
+  loadStatus(){
+    this.statusService.getStatus().pipe(map(data => data['hydra:member']))
+    .subscribe((statuses: Status[]) => {
+      this.listStatus = statuses;
+      
+    })
+
+  }
+
+  loadNombreCouchages(){
+    this.couchageService.getNombreCouchages().pipe(map(data => data['hydra:member']))
+    .subscribe(( nbcouchages: NombreCouchage[]) =>{
+      this.listNombreCouchages = nbcouchages;
+    })
+  }
+
+  loadTypeCouchages() {
+    this.couchageService.getTypeCouchages().pipe(map(data => data['hydra:member']))
+    .subscribe(( typecouchages: TypeCouchage[]) =>{
+      this.listTypeCouchages = typecouchages;
+    })
+  }
+
+  loadEnergies(){
+    this.energieService.getEneregies().pipe(map(data=> data['hydra:member']))
+    .subscribe(( energies: Energie[]) => {
+      this.listEnergies = energies;
+      console.log("0000000000000000000" + this.listEnergies);
+      
+    })
+  }
 }
 
