@@ -1,13 +1,13 @@
 <p>add-vehicule works!</p>
 <div id="cntForm">
-    <div id="titre">
-    <h1>Ajoutes un nouveau vehicule </h1>
-</div>
+    <div id="cntTitre">
+        <h1>Ajoutes un nouveau vehicule </h1>
+    </div>
     <div id="sousCntForm">
         <form [formGroup]="addForm">
             <div id="cnt">
                 <label for="typologie">Quel genre de vehicule? </label>
-                <p-dropdown [options]="listTypologies" formControlName="typologie"
+                <p-dropdown styleClass="dropdown-style" [options]="listTypologies" formControlName="typologie"
                     optionLabel="typeVehicule"></p-dropdown>
             </div>
             <div id="cnt">
@@ -24,7 +24,7 @@
             </div>
             <div id="cnt">
                 <label for="boite">Quel boite? </label>
-                <p-dropdown [options]="listBoites" formControlName="boite" optionLabel="type"></p-dropdown>
+                <p-dropdown styleClass="dropdown-style" [options]="listBoites" formControlName="boite" optionLabel="type"></p-dropdown>
             </div>
             <div id="cnt">
                 <label for="prix">Quel prix? </label>
@@ -56,11 +56,13 @@
             </div>
             <div id="cnt">
                 <label for="nombreCouchage"> Combien de place pour dormir? </label>
-                <p-dropdown [options]="listNombreCouchages" formControlName="nombreCouchage" optionLabel="place"></p-dropdown>
+                <p-dropdown [options]="listNombreCouchages" formControlName="nombreCouchage"
+                    optionLabel="place"></p-dropdown>
             </div>
             <div id="cnt">
                 <label for="typeCouchage">Quel type de couchage? </label>
-                <p-dropdown [options]="listTypeCouchages" formControlName="typeCouchage" optionLabel="type"></p-dropdown>
+                <p-dropdown [options]="listTypeCouchages" formControlName="typeCouchage"
+                    optionLabel="type"></p-dropdown>
             </div>
             <div id="cnt">
                 <label for="pvom"> Le poids a vide du vehicule? </label>

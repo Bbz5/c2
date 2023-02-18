@@ -1,0 +1,15 @@
+export interface OptionsGenerals {
+    id?: number,
+    airbagPassager?: boolean, 
+    regulateurVitesse?: boolean,
+    InterieurCuir?: boolean,
+    jantesAlu?: boolean,
+    storeExterieur?: boolean,
+    antenneSatellite?: boolean,
+    attelage?: boolean,
+    climatisationCellule?: boolean,
+    television?: boolean,
+    verinsStabilisation?: boolean,
+    porteVelo?: boolean,
+    autreOptions?: string,
+}

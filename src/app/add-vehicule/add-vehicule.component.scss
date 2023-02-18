@@ -1,10 +1,14 @@
-// #titre{
-// background-color: aqua;
-// align-items: center;
-// // align-content: center;
-// }
 
-// #cntForm{
+#cntTitre{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+// #dropdown-style{
 //     display: flex;
-//     ;
+//     flex-direction: column;
+//     align-items: center;
+//     height: 10px
 // }

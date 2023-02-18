@@ -101,13 +101,13 @@
               "src/favicon.ico",
               "src/assets"
             ],
+            "scripts": [],
             "styles": [
               "src/styles.scss",
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeng-lts/resources/themes/saga-blue/theme.css",
               "node_modules/primeng-lts/resources/primeng.min.css"
-            ],
-            "scripts": []
+            ]
           }
         }
       }
