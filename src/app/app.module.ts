@@ -13,6 +13,7 @@ import {DropdownModule} from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import {InputTextModule} from 'primeng/inputtext';
 import {InputNumberModule} from 'primeng/inputnumber';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {InputNumberModule} from 'primeng/inputnumber';
     DropdownModule,
     BrowserAnimationsModule,
     InputTextModule,
-    InputNumberModule
+    InputNumberModule,
+    ButtonModule
     
     
   ],

@@ -1,10 +1,10 @@
 <p>add-vehicule works!</p>
-<div id="cntForm">
+<div id="cntForm formgrid grid">
     <div id="cntTitre">
         <h1>Ajoutes un nouveau vehicule </h1>
     </div>
-    <div id="sousCntForm">
-        <form [formGroup]="addForm">
+    <div id="sousCntForm field col-6 ">
+        <form [formGroup]="addForm" (ngSubmit)="submitForm()">
             <div id="cnt">
                 <label for="typologie">Quel genre de vehicule? </label>
                 <p-dropdown styleClass="dropdown-style" [options]="listTypologies" formControlName="typologie"
@@ -12,79 +12,91 @@
             </div>
             <div id="cnt">
                 <label for="annee">De quel année? </label>
-                <input type="text" placeholder="annee" id="annee" pInputText />
+                <input type="date" formControlName="annee" placeholder="annee" id="annee" pInputText />
             </div>
             <div id="cnt">
                 <label for="marque">Marque du vehicule? </label>
-                <input type="text" placeholder="marque" id="marque">
+                <p-dropdown styleClass="dropdown-style" [options]="listMarquesCC" formControlName="marque"
+                    optionLabel="brand"></p-dropdown>
             </div>
             <div id="cnt">
                 <label for="modele">Quel modele de vehicule? </label>
-                <input type="text" placeholder="modele" id="modele" pInputText />
+                <input type="text" formControlName="modele" placeholder="modele" id="modele" pInputText />
             </div>
             <div id="cnt">
                 <label for="boite">Quel boite? </label>
-                <p-dropdown styleClass="dropdown-style" [options]="listBoites" formControlName="boite" optionLabel="type"></p-dropdown>
+                <p-dropdown styleClass="dropdown-style" [options]="listBoites" formControlName="boite"
+                    optionLabel="type"></p-dropdown>
             </div>
             <div id="cnt">
                 <label for="prix">Quel prix? </label>
-                <input type="text" placeholder="prix" id="prix" pInputText />
+                <input type="number" formControlName="prix" placeholder="prix" id="prix" pInputText />
             </div>
             <div id="cnt">
                 <label for="status">Est-il neuf ou d'occasion? </label>
-                <p-dropdown [options]="listStatus" formControlName="status" optionLabel="typeContrat"></p-dropdown>
+                <p-dropdown styleClass="dropdown-style" [options]="listStatus" formControlName="status"
+                    optionLabel="typeContrat"></p-dropdown>
             </div>
             <div id="cnt">
                 <label for="kilometrage">Combien de kilometre? </label>
-                <input type="text" placeholder="kilometrage" id="kilometrage" pInputText />
+                <input type="number" formControlName="kilometrage" placeholder="kilometrage" id="kilometrage"
+                    pInputText />
             </div>
             <div id="cnt">
                 <label for="dimensionLongeur"> Dimension - longeur? </label>
-                <input type="text" placeholder="dimensionLongeur" id="dimensionLongeur" pInputText />
+                <input type="number" formControlName="dimensionLongeur" placeholder="dimensionLongeur"
+                    id="dimensionLongeur" pInputText />
             </div>
             <div id="cnt">
-                <label for="dimensionLargeur"> Dimension - lergeur? </label>
-                <input type="text" placeholder="dimensionLargeur" id="dimensionLargeur" pInputText />
+                <label for="dimensionLargeur"> Dimension - largeur? </label>
+                <input type="number" formControlName="dimensionLargeur" placeholder="dimensionLargeur"
+                    id="dimensionLargeur" pInputText />
             </div>
             <div id="cnt">
                 <label for="dimensionHauteur">Dimension - hauteur? </label>
-                <input type="text" placeholder="dimensionHauteur" id="dimensionHauteur" pInputText />
+                <input type="number" formControlName="dimensionHauteur" placeholder="dimensionHauteur"
+                    id="dimensionHauteur" pInputText />
             </div>
             <div id="cnt">
                 <label for="region">Il est dans quel region? </label>
-                <p-dropdown [options]="listRegions" formControlName="region" optionLabel="nom"></p-dropdown>
+                <p-dropdown styleClass="dropdown-style" [options]="listRegions" formControlName="region"
+                    optionLabel="nom"></p-dropdown>
             </div>
             <div id="cnt">
                 <label for="nombreCouchage"> Combien de place pour dormir? </label>
-                <p-dropdown [options]="listNombreCouchages" formControlName="nombreCouchage"
+                <p-dropdown styleClass="dropdown-style" [options]="listNombreCouchages" formControlName="nombreCouchage"
                     optionLabel="place"></p-dropdown>
             </div>
             <div id="cnt">
                 <label for="typeCouchage">Quel type de couchage? </label>
-                <p-dropdown [options]="listTypeCouchages" formControlName="typeCouchage"
+                <p-dropdown styleClass="dropdown-style" [options]="listTypeCouchages" formControlName="typeCouchage"
                     optionLabel="type"></p-dropdown>
             </div>
             <div id="cnt">
                 <label for="pvom"> Le poids a vide du vehicule? </label>
-                <input type="text" placeholder="pvom" id="pvom" pInputText />
+                <input type="number" formControlName="pvom" placeholder="pvom" id="pvom" pInputText />
             </div>
             <div id="cnt">
                 <label for="ptac"> Le poids total authorisé du vehicule? </label>
-                <input type="text" placeholder="ptac" id="ptac" pInputText />
+                <input type="number" formControlName="ptac" placeholder="ptac" id="ptac" pInputText />
             </div>
             <div id="cnt">
                 <label for="chargeUtile"> La charge Utile? </label>
-                <input type="text" placeholder="chargeUtile" id="chargeUtile" pInputText />
+                <input type="number" formControlName="chargeUtile" placeholder="chargeUtile" id="chargeUtile"
+                    pInputText />
             </div>
             <div id="cnt">
                 <label for="garantie"> La garantie est de combien de mois? </label>
-                <input type="text" placeholder="garantie" id="garantie" pInputText />
+                <input type="number" formControlName="garantie" placeholder="garantie" id="garantie" pInputText />
             </div>
             <div id="cnt">
                 <label for="energie">Quel energie utilise? </label>
-                <p-dropdown [options]="listEnergies" formControlName="energie" optionLabel="typeEnergie"></p-dropdown>
+                <p-dropdown styleClass="dropdown-style" [options]="listEnergies" formControlName="energie"
+                    optionLabel="typeEnergie"></p-dropdown>
             </div>
-
+            <div id="cntBtn">
+                <button pButton type="submit" label="Ajout"></button>
+            </div>
 
 
         </form>
