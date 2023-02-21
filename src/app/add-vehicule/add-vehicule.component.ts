@@ -146,18 +146,18 @@ export class AddVehiculeComponent {
 submitForm(){
   console.log("prima del patch \nform completo: " + JSON.stringify(this.addForm.value.marque.id));
  
-      this.addForm.patchValue({
-     marque: `/api/marques/${this.addForm.value.marque.id}` ,
-     typologie: `/api/typologies/${this.addForm.value.typologie.id}`,
-     boite: `/api/boites/${this.addForm.value.boite.id}`,
-     status: `/api/statuses/${this.addForm.value.status.id}`,
-     region: `/api/regions/${this.addForm.value.region.id}`,
-     nombreCouchage: `/api/nombre_couchages/${this.addForm.value.nombreCouchage.id}`,
-     typeCouchage: `/api/type_couchages/${this.addForm.value.typeCouchage.id}`,
-     energie: `/api/energies/${this.addForm.value.energie.id}`,
-    })
+    //   this.addForm.patchValue({
+    //  marque: `/api/marques/${this.addForm.value.marque.id}` ,
+    //  typologie: `/api/typologies/${this.addForm.value.typologie.id}`,
+    //  boite: `/api/boites/${this.addForm.value.boite.id}`,
+    //  status: `/api/statuses/${this.addForm.value.status.id}`,
+    //  region: `/api/regions/${this.addForm.value.region.id}`,
+    //  nombreCouchage: `/api/nombre_couchages/${this.addForm.value.nombreCouchage.id}`,
+    //  typeCouchage: `/api/type_couchages/${this.addForm.value.typeCouchage.id}`,
+    //  energie: `/api/energies/${this.addForm.value.energie.id}`,
+    // })
 
-    this.addForm.valueChanges.pipe(first()).subscribe(() => {
+    // this.addForm.valueChanges.pipe(first()).subscribe(() => {
       this.patchedDatas= {  
           typologie: `/api/typologies/${this.addForm.value.typologie.id}`,
           prix: this.addForm.value.prix,
@@ -181,11 +181,11 @@ submitForm(){
 
       };
       this.vehiculeService.addVehicule(this.patchedDatas).subscribe((data)=>{
-      console.log(data, +" rawValue :" , this.addForm.getRawValue() );
+      console.log("data " +  data);
       console.log("let form: " + JSON.stringify(this.patchedDatas));
     });
     
-  })
+  
   // }
     // let form= this.addForm.getRawValue();
     //     console.log( "\nmarque: " + JSON.stringify(this.addForm.value.marque) + "\nForm completo: " + JSON.stringify(this.addForm.value)+ "\nlet form: " + form +"\n marque apres :"+ JSON.stringify(this.addForm.value.marque.id));
@@ -193,33 +193,3 @@ submitForm(){
 }
 }
 
-// submitForm() {
- 
-//   this.addForm.setValue({
-//     typologie: `/api/typologies/${this.addForm.value.typologie.id}`,
-//     prix: this.addForm.value.prix,
-//     status: `/api/statuses/${this.addForm.value.status.id}`,
-//     kilometrage: this.addForm.value.kilometrage,
-//     boite: `/api/boites/${this.addForm.value.boite.id}`,
-//     dimensionLongeur: this.addForm.value.dimensionLongeur,
-//     dimensionLargeur: this.addForm.value.dimensionLargeur,
-//     dimensionHauteur: this.addForm.value.dimensionHauteur,
-//     region: `/api/regions/${this.addForm.value.region.id}`,
-//     marque: `/api/marques/${this.addForm.value.marque.id}`,
-//     annee: this.addForm.value.annee,
-//     nombreCouchage: `/api/nombre_couchages/${this.addForm.value.nombreCouchage.id}`,
-//     typeCouchage: `/api/type_couchages/${this.addForm.value.typeCouchage.id}`,
-//     energie: `/api/energies/${this.addForm.value.energie.id}`,
-//     modele: this.addForm.value.modele,
-//     pvom: this.addForm.value.pvom,
-//     ptac: this.addForm.value.ptac,
-//     chargeUtile: this.addForm.value.chargeUtile,
-//     garantie:this.addForm.value.garantie
-//   });
-//   let formValue = this.addForm.value;
-//   console.log("Form values after patching: ", JSON.stringify(this.addForm.value) + "\nformValue: " + JSON.stringify(formValue));
- 
-//   this.vehiculeService.addVehicule(this.addForm.value).subscribe((data) => {
-//     console.log(data, " rawValue: ", this.addForm.getRawValue());
-//   });
-// }
