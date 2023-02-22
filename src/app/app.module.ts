@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputNumberModule} from 'primeng/inputnumber';
 import {ButtonModule} from 'primeng/button';
+import { UpdateVehiculeComponent } from './update-vehicule/update-vehicule.component';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import {ButtonModule} from 'primeng/button';
     NavigationBarComponent,
     HeaderComponent,
     AddVehiculeComponent,
+    UpdateVehiculeComponent,
     
   ],
   imports: [
@@ -34,7 +37,8 @@ import {ButtonModule} from 'primeng/button';
     BrowserAnimationsModule,
     InputTextModule,
     InputNumberModule,
-    ButtonModule
+    ButtonModule,
+    TableModule
     
     
   ],

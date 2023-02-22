@@ -20,8 +20,16 @@ export class VehiculeService {
     const headers= {
       'content-type': 'application/ld+json'
     };
-    const body= JSON.stringify(vehicule)
+    const body= JSON.stringify(vehicule);
     return this.http.post(this.endpoint+ '/vehicules', body, {
        headers: headers })
+  }
+
+  getVehicules(byId?: number):Observable<any>{
+    const params: any={};
+    if(byId){
+      params['vehicule.id'] = byId;
+    }
+    return this.http.get<Vehicule>(this.endpoint+ '/vehicules', {params});
   }
 }

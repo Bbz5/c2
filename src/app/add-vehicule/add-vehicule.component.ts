@@ -3,8 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Typologie } from '../interfaces/typologie';
 import { TypologieService } from '../services/typologie.service';
 import { BoiteService } from '../services/boite.service';
-import { Boite } from '../interfaces/boite';
-import { Region } from '../interfaces/region';
+import { Boite, } from '../interfaces/boite';
 import { RegionService } from '../services/region.service';
 import { Status } from '../interfaces/status';
 import { StatusService } from '../services/status.service';
@@ -18,6 +17,7 @@ import { MarqueService } from '../services/marque.service';
 import { VehiculeService } from '../services/vehicule.service';
 import { catchError, filter, first, map, switchMap, take } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { Region } from '../interfaces/region';
 
 @Component({
   selector: 'app-add-vehicule',
@@ -71,15 +71,7 @@ export class AddVehiculeComponent {
     this.loadTypeCouchages();
     this.loadEnergies();
     this.loadMarque();
-    // setTimeout(() => {
-    //   console.log("nel TO :" + this.listBoites[0].type + " " + this.listBoites[0].id +
-    //     "\n e" + this.listBoites[1].type + " " + this.listBoites[1].id);
-
-    // }, 3000);
-
-
-
-  }
+    }
 
 
   loadBoites() {
@@ -93,7 +85,7 @@ export class AddVehiculeComponent {
     this.typologieService.getTypologie().pipe(map(data => data['hydra:member']))
       .subscribe((typologies: Typologie[]) => {
         this.listTypologies = typologies;
-         })
+      })
   }
   loadRegions() {
     this.regionService.getRegions().pipe(map(data => data['hydra:member']))
@@ -101,7 +93,6 @@ export class AddVehiculeComponent {
         this.listRegions = regions;
       })
   }
-
   loadStatus() {
     this.statusService.getStatus().pipe(map(data => data['hydra:member']))
       .subscribe((statuses: Status[]) => {
@@ -110,42 +101,36 @@ export class AddVehiculeComponent {
       })
 
   }
-
   loadNombreCouchages() {
     this.couchageService.getNombreCouchages().pipe(map(data => data['hydra:member']))
       .subscribe((nbcouchages: NombreCouchage[]) => {
         this.listNombreCouchages = nbcouchages;
       })
   }
-
   loadTypeCouchages() {
     this.couchageService.getTypeCouchages().pipe(map(data => data['hydra:member']))
       .subscribe((typecouchages: TypeCouchage[]) => {
         this.listTypeCouchages = typecouchages;
       })
   }
-
   loadEnergies() {
     this.energieService.getEneregies().pipe(map(data => data['hydra:member']))
       .subscribe((energies: Energie[]) => {
-        this.listEnergies = energies })
+        this.listEnergies = energies
+      })
+  }
+  loadMarque() {
+    this.marqueCCservice.getMarqueCampingcar().pipe(map(data => data['hydra:member']))
+      .subscribe((marques: Marque[]) => {
+        this.listMarquesCC = marques
+      })
   }
 
-  loadMarque(){
-    this.marqueCCservice.getMarqueCampingcar().pipe(map(data=> data['hydra:member']))
-    .subscribe((marques: Marque[]) => {
-      this.listMarquesCC = marques  })
-  }
 
 
+  submitForm() {
+    console.log("prima del patch \nform completo: " + JSON.stringify(this.addForm.value.marque.id));
 
-  
-
-  
-    
-submitForm(){
-  console.log("prima del patch \nform completo: " + JSON.stringify(this.addForm.value.marque.id));
- 
     //   this.addForm.patchValue({
     //  marque: `/api/marques/${this.addForm.value.marque.id}` ,
     //  typologie: `/api/typologies/${this.addForm.value.typologie.id}`,
@@ -158,38 +143,33 @@ submitForm(){
     // })
 
     // this.addForm.valueChanges.pipe(first()).subscribe(() => {
-      this.patchedDatas= {  
-          typologie: `/api/typologies/${this.addForm.value.typologie.id}`,
-          prix: this.addForm.value.prix,
-          status: [`/api/statuses/${this.addForm.value.status.id}`],
-          kilometrage: this.addForm.value.kilometrage,
-          boite: `/api/boites/${this.addForm.value.boite.id}`,
-          dimensionLongeur: this.addForm.value.dimensionLongeur,
-          dimensionLargeur: this.addForm.value.dimensionLargeur,
-          dimensionHauteur: this.addForm.value.dimensionHauteur,
-          region: [`/api/regions/${this.addForm.value.region.id}`],
-          marque: `/api/marques/${this.addForm.value.marque.id}`,
-          annee: this.addForm.value.annee,
-          nombreCouchage: `/api/nombre_couchages/${this.addForm.value.nombreCouchage.id}`,
-          typeCouchage: [`/api/type_couchages/${this.addForm.value.typeCouchage.id}`],
-          energie: `/api/energies/${this.addForm.value.energie.id}`,
-          modele: this.addForm.value.modele,
-          pvom: this.addForm.value.pvom,
-          ptac: this.addForm.value.ptac,
-          chargeUtile: this.addForm.value.chargeUtile,
-          garantie:this.addForm.value.garantie
+    this.patchedDatas = {
+      typologie: `/api/typologies/${this.addForm.value.typologie.id}`,
+      prix: this.addForm.value.prix,
+      status: [`/api/statuses/${this.addForm.value.status.id}`],
+      kilometrage: this.addForm.value.kilometrage,
+      boite: `/api/boites/${this.addForm.value.boite.id}`,
+      dimensionLongeur: this.addForm.value.dimensionLongeur,
+      dimensionLargeur: this.addForm.value.dimensionLargeur,
+      dimensionHauteur: this.addForm.value.dimensionHauteur,
+      region: [`/api/regions/${this.addForm.value.region.id}`],
+      marque: `/api/marques/${this.addForm.value.marque.id}`,
+      annee: this.addForm.value.annee,
+      nombreCouchage: `/api/nombre_couchages/${this.addForm.value.nombreCouchage.id}`,
+      typeCouchage: [`/api/type_couchages/${this.addForm.value.typeCouchage.id}`],
+      energie: `/api/energies/${this.addForm.value.energie.id}`,
+      modele: this.addForm.value.modele,
+      pvom: this.addForm.value.pvom,
+      ptac: this.addForm.value.ptac,
+      chargeUtile: this.addForm.value.chargeUtile,
+      garantie: this.addForm.value.garantie
 
-      };
-      this.vehiculeService.addVehicule(this.patchedDatas).subscribe((data)=>{
-      console.log("data " +  data);
+    };
+    this.vehiculeService.addVehicule(this.patchedDatas).subscribe((data) => {
+      console.log("data " + data);
       console.log("let form: " + JSON.stringify(this.patchedDatas));
     });
-    
-  
-  // }
-    // let form= this.addForm.getRawValue();
-    //     console.log( "\nmarque: " + JSON.stringify(this.addForm.value.marque) + "\nForm completo: " + JSON.stringify(this.addForm.value)+ "\nlet form: " + form +"\n marque apres :"+ JSON.stringify(this.addForm.value.marque.id));
-    
-}
+
+  }
 }
 
