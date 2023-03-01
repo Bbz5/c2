@@ -18,4 +18,12 @@ export class RegionService {
     return this.http.get<Region>(this.endpoint+ "/regions")
   }
 
+  addRegion(region : Region): Observable<any>{
+    const headers = {
+      'content-type': 'application/json'
+    };
+    const body = JSON.stringify(region);
+    return this.http.post(this.endpoint+'/regions', body, {headers: headers});
+  }
+
 }

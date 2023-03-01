@@ -19,4 +19,11 @@ export class TypologieService {
     return this.http.get<Typologie>(this.endpoint+ "/typologies")
   }
 
+  addTypologie(typologie: Typologie):Observable<any>{
+    const headers = {
+      'content-type': 'application/json'
+    };
+    const body = JSON.stringify(typologie);
+    return this.http.post(this.endpoint+'/typologies', body, {headers: headers});
+  }
 }

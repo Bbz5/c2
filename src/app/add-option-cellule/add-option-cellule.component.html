@@ -1,0 +1,183 @@
+<div id="cntForm formgrid grid">
+    <div id="cntTitre">
+        <h1> Les options disponibles dans la cellule </h1>
+    </div>
+    <div id="sousCntForm field col-6 ">
+        <form [formGroup]="addOptionsCelluleForm">
+            <!-- <div id="cnt">
+                <label for="typologie">Quel genre de vehicule? </label>
+                <p-dropdown styleClass="dropdown-style" formControlName="batterieAuxiliaire"
+                    optionLabel="typeVehicule"></p-dropdown>
+            </div>
+            <div id="cnt">
+                <label for="annee">De quel année? </label>
+                <input type="date" formControlName="batterieCellule" placeholder="annee" id="annee" pInputText />
+            </div>
+            <div id="cnt">
+                <label for="marque">Marque du vehicule? </label>
+                <p-dropdown styleClass="dropdown-style" formControlName="chauffage" optionLabel="brand"></p-dropdown>
+            </div>
+            <div id="cnt">
+                <label for="modele">Quel modele de vehicule? </label>
+                <input type="text" formControlName="chauffageGazoil" placeholder="modele" id="modele" pInputText />
+            </div> -->
+           
+            <div id="cnt">
+                <label for="batterieAuxiliaire">Batterie auxiliaire? </label>
+                <p-radioButton styleClass="radio-style" name="batterieAuxiliaire" value="false" formControlName="batterieAuxiliaire" label="Non"></p-radioButton>
+                <p-radioButton name="batterieAuxiliaire" value="true" formControlName="batterieAuxiliaire" label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="batterieCellule">Batterie cellule? </label>
+                <p-radioButton id="radiooo" name="batterieCellule" value="false" formControlName="batterieCellule" label="Non"></p-radioButton>
+                <p-radioButton name="batterieCellule" value="true" formControlName="batterieCellule" label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="chauffage">Chauffage? </label>
+                <p-radioButton name="chauffage" value="false" formControlName="chauffage" label="Non"></p-radioButton>
+                <p-radioButton name="chauffage" value="true" formControlName="chauffage" label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="chauffageGazoil">Chauffage au gaz? </label>
+                <p-radioButton name="chauffageGazoil" value="false" formControlName="chauffageGazoil" label="Non"></p-radioButton>
+                <p-radioButton name="chauffageGazoil" value="true" formControlName="chauffageGazoil" label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="chauffageAlde">Chauffage Alde? </label>
+                <p-radioButton name="chauffageAlde" value="false" formControlName="chauffageAlde" label="Non"></p-radioButton>
+                <p-radioButton name="chauffageAlde" value="true" formControlName="chauffageAlde" label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="chauffeEau">Chauffage Eau? </label>
+                <p-radioButton name="chauffeEau" value="false" formControlName="chauffeEau" label="Non"></p-radioButton>
+                <p-radioButton name="chauffeEau" value="true" formControlName="chauffeEau" label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="chauffageRoute">Chauffage Route? </label>
+                <p-radioButton name="chauffageRoute" value="false" formControlName="chauffageRoute"
+                    label="Non"></p-radioButton>
+                <p-radioButton name="chauffageRoute" value="true" formControlName="chauffageRoute"
+                    label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="ecleraigeLed">Ecleraige Led? </label>
+                <p-radioButton name="ecleraigeLed" value="false" formControlName="ecleraigeLed"
+                    label="Non"></p-radioButton>
+                <p-radioButton name="ecleraigeLed" value="true" formControlName="ecleraigeLed"
+                    label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="fermeteurCentral">Fermeture central? </label>
+                <p-radioButton name="fermeteurCentral" value="false" formControlName="fermeteurCentral"
+                    label="Non"></p-radioButton>
+                <p-radioButton name="fermeteurCentral" value="true" formControlName="fermeteurCentral"
+                    label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="marchepiedElectriq">Marche Pied Electrique? </label>
+                <p-radioButton name="marchepiedElectriq" value="false" formControlName="marchepiedElectriq"
+                    label="Non"></p-radioButton>
+                <p-radioButton name="marchepiedElectriq" value="true" formControlName="marchepiedElectriq"
+                    label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="moustiquiairePorte">Moustiquiaire porte? </label>
+                <p-radioButton name="moustiquiairePorte" value="false" formControlName="moustiquiairePorte"
+                    label="Non"></p-radioButton>
+                <p-radioButton name="moustiquiairePorte" value="true" formControlName="moustiquiairePorte"
+                    label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="porteCelluleBaie">Porte cellule baie? </label>
+                <p-radioButton name="porteCelluleBaie" value="false" formControlName="porteCelluleBaie"
+                    label="Non"></p-radioButton>
+                <p-radioButton name="porteCelluleBaie" value="true" formControlName="porteCelluleBaie"
+                    label="Oui"></p-radioButton>
+            </div>
+
+            <div id="cnt">
+                <label for="refrigCongelateur">Réfrigérateur-congélateur: combien de litres? </label>
+                <p-radioButton name="refrigCongelateur" value="false" formControlName="refrigCongelateur"
+                    label="Non"></p-radioButton>
+                <p-radioButton name="refrigCongelateur" value="true" formControlName="refrigCongelateur"
+                    label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="reservoirEauPropre">Réservoir d'eau propre? </label>
+                <p-radioButton name="reservoirEauPropre" value="false" formControlName="reservoirEauPropre" label="Non"></p-radioButton>
+                <p-radioButton name="reservoirEauPropre" value="true" formControlName="reservoirEauPropre" label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="reservoirEauUse">Réservoir d'eau usée? </label>
+                <p-radioButton name="reservoirEauUse" value="false" formControlName="reservoirEauUse" label="Non"></p-radioButton>
+                <p-radioButton name="reservoirEauUse" value="true" formControlName="reservoirEauUse" label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="fourElectrique">Four électrique? </label>
+                <p-radioButton name="fourElectrique" value="false" formControlName="fourElectrique" label="Non"></p-radioButton>
+                <p-radioButton name="fourElectrique" value="true" formControlName="fourElectrique" label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="fourGaz">Four à gaz? </label>
+                <p-radioButton name="fourGaz" value="false" formControlName="fourGaz" label="Non"></p-radioButton>
+                <p-radioButton name="fourGaz" value="true" formControlName="fourGaz" label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="toitDome">Toit en dôme ? </label>
+                <p-radioButton name="toitDome" value="false" formControlName="toitDome" label="Non"></p-radioButton>
+                <p-radioButton name="toitDome" value="true" formControlName="toitDome" label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="skyDome"> Sky dôme ? </label>
+                <p-radioButton name="skyDome" value="false" formControlName="skyDome" label="Non"></p-radioButton>
+                <p-radioButton name="skyDome" value="true" formControlName="skyDome" label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="tissus">Toit en dôme ? </label>
+                <p-radioButton name="tissus" value="false" formControlName="tissus" label="Non"></p-radioButton>
+                <p-radioButton name="tissus" value="true" formControlName="tissus" label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="doublePlancher">Double plancher ? </label>
+                <p-radioButton name="doublePlancher" value="false" formControlName="doublePlancher"
+                    label="Non"></p-radioButton>
+                <p-radioButton name="doublePlancher" value="true" formControlName="doublePlancher"
+                    label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="hotteAspirante">Hotte aspirante ? </label>
+                <p-radioButton name="hotteAspirante" value="false" formControlName="hotteAspirante"
+                    label="Non"></p-radioButton>
+                <p-radioButton name="hotteAspirante" value="true" formControlName="hotteAspirante"
+                    label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="inverseurGaz">Inverseur Gaz ? </label>
+                <p-radioButton name="inverseurGaz" value="false" formControlName="inverseurGaz"
+                    label="Non"></p-radioButton>
+                <p-radioButton name="inverseurGaz" value="true" formControlName="inverseurGaz"
+                    label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="panneauSolaire">Panneau solaire? </label>
+                <p-radioButton name="panneauSolaire" value="false" formControlName="panneauSolaire"
+                    label="Non"></p-radioButton>
+                <p-radioButton name="panneauSolaire" value="true" formControlName="panneauSolaire"
+                    label="Oui"></p-radioButton>
+            </div>
+            <div id="cnt">
+                <label for="lampeAuvent">Lampe Auvent? </label>
+                <p-radioButton name="lampeAuvent" value="false" formControlName="lampeAuvent"
+                    label="Non"></p-radioButton>
+                <p-radioButton name="lampeAuvent" value="true" formControlName="lampeAuvent"
+                    label="Oui"></p-radioButton>
+            </div>
+
+            <div id="cntBtn">
+                <button pButton type="submit" label="Ajout"></button>
+            </div>
+
+
+        </form>
+    </div>
+</div>

@@ -8,6 +8,7 @@
     <ng-template pTemplate="header">
         <tr>
             <th>Marque</th>
+            <th>Modele</th>
             <th>Image</th>
             <th>Price</th>
             <th>Année</th>
@@ -17,12 +18,13 @@
     </ng-template>
     <ng-template pTemplate="body" let-vehicule>
         <tr>
-            <td>{{vehicule.marque}}</td>
+            <td>{{vehicule.marque.brand}}</td>
+            <td>{{vehicule.modele | titlecase}}</td>
             <td><img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + vehicule.image" [alt]="vehicule.name" width="100" class="shadow-4" /></td>
             <td>{{vehicule.prix | currency:'EUR'}}</td>
-            <td>{{vehicule.typologie}}</td>
-            <td>>{{vehicule.energie}}</td>
-            <td>>{{vehicule.status}}</td>
+            <td>{{vehicule.annee | date:'yyyy' }}</td>
+            <td>{{vehicule.energie.typeEnergie | titlecase}}</td>
+            <td>{{vehicule.status.typeContrat}}</td>
         </tr>
     </ng-template>
     <ng-template pTemplate="summary">

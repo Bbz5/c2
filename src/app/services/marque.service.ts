@@ -19,4 +19,12 @@ export class MarqueService {
   getMarqueCampingcar():Observable<any>{
     return this.http.get<Marque>(this.endpoint+ "/marques")
   }
+
+  addMarqueVehicule(marque: Marque): Observable<any>{
+    const headers= {
+      'content-type': 'application/json'
+    };
+    const body = JSON.stringify(marque);
+  return this.http.post(this.endpoint+'/marques', body, {headers: headers});
+  }
 }

@@ -19,4 +19,12 @@ export class EnergieService {
   getEneregies(): Observable<any>{
     return this.http.get<Energie>(this.endpoint + '/energies')
   }
+
+  addEnergie(energie: Energie): Observable<any>{
+    const headers= {
+      'content-type' : 'application/json'
+    };
+    const body = JSON.stringify(energie)
+    return this.http.post(this.endpoint+'/energies', body, {headers:headers})
+  }
 }

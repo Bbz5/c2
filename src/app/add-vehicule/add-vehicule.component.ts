@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Typologie } from '../interfaces/typologie';
 import { TypologieService } from '../services/typologie.service';
@@ -18,6 +18,8 @@ import { VehiculeService } from '../services/vehicule.service';
 import { catchError, filter, first, map, switchMap, take } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Region } from '../interfaces/region';
+import { Router } from '@angular/router';
+import { IDropdownSettings, } from 'ng-multiselect-dropdown';
 
 @Component({
   selector: 'app-add-vehicule',
@@ -34,6 +36,13 @@ export class AddVehiculeComponent {
   listEnergies: Energie[] = [];
   listMarquesCC: Marque[] = [];
   patchedDatas: any;
+  displayTypologie = false;
+  displayMarque = false;
+  displayRegion = false;
+  displayTypeCouchage = false;
+  displayEnergieForm = false;
+  selectedTypeCouchage: TypeCouchage[] = [];
+  dropdownSettings:IDropdownSettings={}
 
   addForm = new FormGroup({
     typologie: new FormControl(),
@@ -60,7 +69,53 @@ export class AddVehiculeComponent {
     private boiteService: BoiteService, private typologieService: TypologieService,
     private regionService: RegionService, private statusService: StatusService,
     private couchageService: CouchageService, private energieService: EnergieService,
-    private marqueCCservice: MarqueService, private vehiculeService: VehiculeService) { }
+    private marqueCCservice: MarqueService, private vehiculeService: VehiculeService,
+    private router: Router) { }
+
+
+
+  addOptionsPorteurForm = new FormGroup({
+    marquePorteur: new FormControl(),
+    modelePorteur: new FormControl(),
+    cylindree: new FormControl(),
+    motorisation: new FormControl(),
+    puissanceDin: new FormControl(),
+    puissanceFiscale: new FormControl(),
+    abs: new FormControl(),
+    airbag: new FormControl(),
+    autoradio: new FormControl(),
+    climaPort: new FormControl(),
+    retroviseurElect: new FormControl(),
+    siegeCabConfort: new FormControl(),
+    vitresElectr: new FormControl(),
+    verrouillage: new FormControl(),
+    antiBrouillard: new FormControl(),
+    cameraRecoule: new FormControl(),
+    esp: new FormControl(),
+    stopStart: new FormControl(),
+    euro6: new FormControl(),
+    feuxLed: new FormControl(),
+    rideauIso: new FormControl(),
+    gps: new FormControl(),
+    asr: new FormControl(),
+    antiDemarrage: new FormControl(),
+
+  })
+
+  addOptionsGeneralsForm = new FormGroup({
+    airbagPassenger: new FormControl(),
+    regulateurVitesse: new FormControl(),
+    interieurCuir: new FormControl(),
+    jantesAlu: new FormControl(),
+    storeExterieur: new FormControl(),
+    attelage: new FormControl(),
+    climatisationCellule: new FormControl(),
+    television: new FormControl(),
+    verinsStabilisation: new FormControl(),
+    porteVelo: new FormControl(),
+    autreOptions: new FormControl(),
+  })
+
 
   ngOnInit(): void {
     this.loadBoites();
@@ -71,7 +126,11 @@ export class AddVehiculeComponent {
     this.loadTypeCouchages();
     this.loadEnergies();
     this.loadMarque();
-    }
+    this.dropdownSettings={
+      idField: 'id',
+      textField: 'type'
+     }
+  }
 
 
   loadBoites() {
@@ -126,10 +185,28 @@ export class AddVehiculeComponent {
       })
   }
 
+  openTypologieForm() {
+    this.displayTypologie = !this.displayTypologie
+  }
+  openMarqueForm() {
+    this.displayMarque = !this.displayMarque
+  }
+
+  openRegionForm() {
+    this.displayRegion = !this.displayRegion
+  }
+
+  openTypeCouchageForm() {
+    this.displayTypeCouchage = !this.displayTypeCouchage
+  }
+
+  openEnergieForm() {
+    this.displayEnergieForm = !this.displayEnergieForm
+  }
 
 
-  submitForm() {
-    console.log("prima del patch \nform completo: " + JSON.stringify(this.addForm.value.marque.id));
+  submitPremierForm() {
+    console.log("prima del patch \nform completo: " + JSON.stringify(this.addForm.value.typeCouchage.id) + " and " );
 
     //   this.addForm.patchValue({
     //  marque: `/api/marques/${this.addForm.value.marque.id}` ,
@@ -169,7 +246,7 @@ export class AddVehiculeComponent {
       console.log("data " + data);
       console.log("let form: " + JSON.stringify(this.patchedDatas));
     });
-
+    //this.router.navigate(['/addCellule'])
   }
 }
 

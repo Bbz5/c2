@@ -1,14 +1,18 @@
-<p>add-vehicule works!</p>
 <div id="cntForm formgrid grid">
     <div id="cntTitre">
         <h1>Ajoutes un nouveau vehicule </h1>
     </div>
     <div id="sousCntForm field col-6 ">
-        <form [formGroup]="addForm" (ngSubmit)="submitForm()">
+        <form [formGroup]="addForm" (ngSubmit)="submitPremierForm()">
             <div id="cnt">
                 <label for="typologie">Quel genre de vehicule? </label>
                 <p-dropdown styleClass="dropdown-style" [options]="listTypologies" formControlName="typologie"
                     optionLabel="typeVehicule"></p-dropdown>
+                <button styleClass="icons-style" pButton type="button" (click)="openTypologieForm()"
+                    class="p-button-help" icon="pi pi-plus" iconPos="left"></button>
+                <div id="comp-new-type" *ngIf="displayTypologie">
+                    <app-add-typologie></app-add-typologie>
+                </div>
             </div>
             <div id="cnt">
                 <label for="annee">De quel année? </label>
@@ -18,6 +22,11 @@
                 <label for="marque">Marque du vehicule? </label>
                 <p-dropdown styleClass="dropdown-style" [options]="listMarquesCC" formControlName="marque"
                     optionLabel="brand"></p-dropdown>
+                <button styleClass="icons-style" pButton type="button" (click)="openMarqueForm()" class="p-button-help"
+                    icon="pi pi-plus" iconPos="left"></button>
+                <div id="comp-new-marque" *ngIf="displayMarque">
+                    <app-add-marque-vehicule></app-add-marque-vehicule>
+                </div>
             </div>
             <div id="cnt">
                 <label for="modele">Quel modele de vehicule? </label>
@@ -61,16 +70,40 @@
                 <label for="region">Il est dans quel region? </label>
                 <p-dropdown styleClass="dropdown-style" [options]="listRegions" formControlName="region"
                     optionLabel="nom"></p-dropdown>
+                <button styleClass="icons-style" pButton type="button" (click)="openRegionForm()" class="p-button-help"
+                    icon="pi pi-plus" iconPos="left"></button>
+                <div id="comp-new-region" *ngIf="displayRegion">
+                    <app-add-region></app-add-region>
+                </div>
             </div>
             <div id="cnt">
                 <label for="nombreCouchage"> Combien de place pour dormir? </label>
                 <p-dropdown styleClass="dropdown-style" [options]="listNombreCouchages" formControlName="nombreCouchage"
                     optionLabel="place"></p-dropdown>
+                <button styleClass="icons-style" pButton type="button" class="p-button-help" icon="pi pi-plus"
+                    iconPos="left"></button>
             </div>
             <div id="cnt">
                 <label for="typeCouchage">Quel type de couchage? </label>
-                <p-dropdown styleClass="dropdown-style" [options]="listTypeCouchages" formControlName="typeCouchage"
-                    optionLabel="type"></p-dropdown>
+                <ng-select
+                [items]="listTypeCouchages"
+                bindLabel="type"
+                [multiple]="true"
+                
+                formControlName="typeCouchage"
+                
+            ></ng-select>
+            
+                <!-- <ng-multiselect-dropdown #multiSelect [settings]="dropdownSettings"
+                [data]= "listTypeCouchages"></ng-multiselect-dropdown> -->
+                <!-- <p-multiSelect styleClass="multiselect-style" [options]="listTypeCouchages" optionLabel="type"  formControlName="typeCouchage"></p-multiSelect> -->
+                <!-- <p-dropdown styleClass="dropdown-style" [options]="listTypeCouchages" formControlName="typeCouchage"
+                    optionLabel="type"></p-dropdown> -->
+                <button styleClass="icons-style" pButton type="button" (click)="openTypeCouchageForm()"
+                    class="p-button-help" icon="pi pi-plus" iconPos="left"></button>
+                <div id="comp-new-type-couchage" *ngIf="displayTypeCouchage">
+                    <app-add-type-couchage></app-add-type-couchage>
+                </div>
             </div>
             <div id="cnt">
                 <label for="pvom"> Le poids a vide du vehicule? </label>
@@ -93,6 +126,11 @@
                 <label for="energie">Quel energie utilise? </label>
                 <p-dropdown styleClass="dropdown-style" [options]="listEnergies" formControlName="energie"
                     optionLabel="typeEnergie"></p-dropdown>
+                <button styleClass="icons-style" pButton type="button" class="p-button-help" (click)="openEnergieForm()"
+                    icon="pi pi-plus" iconPos="left"></button>
+                <div id="comp-new-energie" *ngIf="displayEnergieForm">
+                    <app-add-energie></app-add-energie>
+                </div>
             </div>
             <div id="cntBtn">
                 <button pButton type="submit" label="Ajout"></button>

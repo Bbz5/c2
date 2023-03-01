@@ -1,0 +1,34 @@
+#cntTitre {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+:host {
+    ::ng-deep .dropdown-style {
+        margin-bottom: 0.5rem;
+    }
+    ::ng-deep radioButton {
+        margin-right: 5rem;
+    }
+
+}
+
+// input {
+//     margin-bottom: 0.5rem;
+//     margin-right: 50rem;
+// }
+
+#cnt {
+    display: flex;
+    justify-items: center;
+    border: 1px black;
+}
+
+label {
+    margin-top: 0.6rem;
+    width: 15rem;
+    display: flex;
+    justify-items: center;
+}

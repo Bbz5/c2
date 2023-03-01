@@ -19,7 +19,6 @@ export interface OptionsPorteur {
     antiBrouillard?: boolean,
     cameraRecoule?: boolean,
     esp?: boolean,
-    retroviseurElectr?: boolean,
     stopStart?: boolean,
     euro6?: boolean,
     feuxLed?: boolean,
