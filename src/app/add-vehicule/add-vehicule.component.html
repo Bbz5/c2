@@ -85,20 +85,12 @@
             </div>
             <div id="cnt">
                 <label for="typeCouchage">Quel type de couchage? </label>
-                <ng-select
-                [items]="listTypeCouchages"
-                bindLabel="type"
-                [multiple]="true"
                 
-                formControlName="typeCouchage"
-                
-            ></ng-select>
-            
                 <!-- <ng-multiselect-dropdown #multiSelect [settings]="dropdownSettings"
                 [data]= "listTypeCouchages"></ng-multiselect-dropdown> -->
                 <!-- <p-multiSelect styleClass="multiselect-style" [options]="listTypeCouchages" optionLabel="type"  formControlName="typeCouchage"></p-multiSelect> -->
-                <!-- <p-dropdown styleClass="dropdown-style" [options]="listTypeCouchages" formControlName="typeCouchage"
-                    optionLabel="type"></p-dropdown> -->
+                <p-dropdown styleClass="dropdown-style" [options]="listTypeCouchages" formControlName="typeCouchage"
+                    optionLabel="type"></p-dropdown>
                 <button styleClass="icons-style" pButton type="button" (click)="openTypeCouchageForm()"
                     class="p-button-help" icon="pi pi-plus" iconPos="left"></button>
                 <div id="comp-new-type-couchage" *ngIf="displayTypeCouchage">

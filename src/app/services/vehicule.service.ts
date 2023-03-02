@@ -32,4 +32,11 @@ export class VehiculeService {
     }
     return this.http.get<Vehicule>(this.endpoint+ '/vehicules', {params});
   }
+
+  updateVehicule(id: number, vehicule: Vehicule):Observable<any>{
+    const headers ={
+      'content-type' : 'application/merge-patch+json',
+    };
+    return this.http.patch(this.endpoint+ '/vehicules/' +id, vehicule, {headers})
+  }
 }
